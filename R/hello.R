@@ -39,8 +39,8 @@ edgeListToNodesEdges <- function(df,addLabel = TRUE, addHover = FALSE,
   nodes$id <- 1:nrow(nodes)
 
   ## and match to IDs to make edges
-  edges <- data.frame(from= match(df[,1] %>% pull, nodes$name),
-                      to=   match(df[,2] %>% pull, nodes$name),
+  edges <- data.frame(from= match(df[,1], nodes$name),
+                      to=   match(df[,2], nodes$name),
                       stringsAsFactors = FALSE)
   if (ncol(df) == 3) edges <- edges %>% mutate(value = pull(df,3))
 
